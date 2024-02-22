@@ -5,6 +5,8 @@ import java.io.Serializable;
 public class Product implements Serializable{
 	private static final long serialVersionUID = -4274700572038677000L;
 
+	
+	private String filename; //이미지 파일명
 	private String productId; //상품 아이디
 	private String pname; //상품명
 	private Integer unitPrice; //상품 가격
@@ -14,6 +16,13 @@ public class Product implements Serializable{
 	private long unitInStrock; //재고 수
 	private String condition; // 신상품 or 중고품 or  재생품
 	
+	
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 	
 	public Product() {
 		super();

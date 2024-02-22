@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel = "stylesheet" href = "./resources/css/bootstrap.min.css" />
 <title>상품 목록</title>
 </head>
 <body>
@@ -34,7 +34,10 @@
 				
 		%>
 			<div class="col-md-4">
-				<h2><%=product.getPname() %></h2>
+			<%-- <img src ="./resources/images/<%=product.getFilename() %>" style="width:100%"> --%>
+			
+			<img src ="./resources/images/<%=product.getFilename() %>" style="width:100%">
+			<h2><%=product.getPname() %></h2>
 				<h3><%=product.getDescription() %></h3>
 				<h3><%=product.getUnitPrice() %>원</h3>
 				<p> <a href = "./product.jsp?id=<%=product.getProductId()%>"

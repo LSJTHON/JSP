@@ -10,6 +10,14 @@
 <body>
 	<%
 	request.setCharacterEncoding("UTF-8");
+	
+	String filename ="";
+	String realFolder = "C:\\upload";
+	int maxSize = 5*1024*1024;
+	String encType = "utf-8";
+	
+	MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
+	
 	String bookId = request.getParameter("bookId");
 	String name = request.getParameter("name");
 	String unitPrice = request.getParameter("unitPrice");

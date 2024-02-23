@@ -31,6 +31,8 @@
 	%>
 	<div class = "container">
 		<div class="row" align ="left">
+		<%-- <img src ="./resources/images/<%=bookinfo.getFilename() %>" style="width:100%"> --%>
+		<img src ="/upload/<%=bookinfo.getFilename() %>" style="width:100%">
 			<h3><%=bookinfo.getName()%></h3>
 			<p><%=bookinfo.getDescription() %></p>
 			<div class="col-md-12">

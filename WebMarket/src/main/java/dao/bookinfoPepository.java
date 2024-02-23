@@ -38,7 +38,7 @@ public class bookinfoPepository {
 	      book1.setUnitsInStock(1000);
 	      book1.setTotalPages(288);
 	      book1.setReleaseDate("2018/03/02");
-	      
+	      book1.setFilename("dog1.jpg");
 	      
 	      bookinfo book2 = new bookinfo("ISBN1235","DEEP WEB(딥웹)", 27000);
 	      book2.setAuthor("우종중");
@@ -48,6 +48,7 @@ public class bookinfoPepository {
 	      book2.setUnitsInStock(1000);
 	      book2.setTotalPages(692);
 	      book2.setReleaseDate("2017/08/02");
+	      book2.setFilename("dog2.jpg");
 	      
 	      
 	      bookinfo book3= new bookinfo("ISBN1236","THOR ", 27000);
@@ -58,7 +59,8 @@ public class bookinfoPepository {
 	      book3.setUnitsInStock(1000);
 	      book3.setTotalPages(520);
 	      book3.setReleaseDate("2017/11/01");
-		
+	      book3.setFilename("dog3.jpg");
+	      
 	      listOfBooks.add(book1);
 	      listOfBooks.add(book2);
 	      listOfBooks.add(book3);

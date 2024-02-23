@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ page import="dto.bookinfo,dao.bookinfoPepository" %>
+     <%@ page import ="com.oreilly.servlet.*,com.oreilly.servlet.multipart.*, java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,21 +13,23 @@
 	request.setCharacterEncoding("UTF-8");
 	
 	String filename ="";
-	String realFolder = "C:\\upload";
+	String realFolder = "c:/upload/";
+	//String realFolder = "resources\\images";
 	int maxSize = 5*1024*1024;
 	String encType = "utf-8";
 	
-	MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());
+	MultipartRequest multi = new MultipartRequest(request, realFolder, 
+			maxSize, encType, new DefaultFileRenamePolicy());
 	
-	String bookId = request.getParameter("bookId");
-	String name = request.getParameter("name");
-	String unitPrice = request.getParameter("unitPrice");
-	String description = request.getParameter("description");
-	String publisher = request.getParameter("publisher");
-	String category = request.getParameter("category");
-	String unitsInStock = request.getParameter("unitInStock");
-	String condition = request.getParameter("condition");
-	String author = request.getParameter("author");
+	String bookId = multi.getParameter("bookId");
+	String name = multi.getParameter("name");
+	String unitPrice = multi.getParameter("unitPrice");
+	String description = multi.getParameter("description");
+	String publisher = multi.getParameter("publisher");
+	String category = multi.getParameter("category");
+	String unitsInStock = multi.getParameter("unitInStock");
+	String condition = multi.getParameter("condition");
+	String author = multi.getParameter("author");
 	
 	Integer price;
 	if(unitPrice.isEmpty()){
@@ -42,6 +45,10 @@
 		stock= Long.valueOf(unitsInStock);
 	}
 	
+	Enumeration files = multi.getFileNames();
+	String fname = (String) files.nextElement();
+	String fileName = multi.getFilesystemName(fname);
+	
 	bookinfoPepository dao = bookinfoPepository.getInstance();
 	
 	bookinfo newbookinfo = new bookinfo();
@@ -54,6 +61,7 @@
 	newbookinfo.setUnitsInStock(stock);
 	newbookinfo.setCondition(condition);
 	newbookinfo.setAuthor(author);
+	newbookinfo.setFilename(fileName);
 	
 	dao.addbookinfo(newbookinfo);
 	response.sendRedirect("bookStore.jsp");

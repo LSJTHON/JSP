@@ -36,7 +36,7 @@
 			<div class="col-md-4">
 			<%-- <img src ="./resources/images/<%=product.getFilename() %>" style="width:100%"> --%>
 			
-			<img src ="./resources/images/<%=product.getFilename() %>" style="width:100%">
+			<img src ="/upload/<%=product.getFilename() %>" style="width:100%">
 			<h2><%=product.getPname() %></h2>
 				<h3><%=product.getDescription() %></h3>
 				<h3><%=product.getUnitPrice() %>원</h3>

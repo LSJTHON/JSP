@@ -16,8 +16,8 @@
 	request.setCharacterEncoding("UTF-8");
 	
 	String filename ="";
-	String realFolder = "C:\\upload";
-	//String realFolder = ".\\resources\\images";
+	String realFolder = "c:/upload/";
+	//String realFolder = "resources\\images";
 	int maxSize = 5*1024*1024;
 	String encType = "utf-8";
 	
@@ -63,7 +63,7 @@
 	newProduct.setCategory(category);
 	newProduct.setUnitInStrock(stock);
 	newProduct.setCondition(condition);
-	newProduct.setFilename(filename);
+	newProduct.setFilename(fileName);
 	
 	dao.addProduct(newProduct);
 	response.sendRedirect("products.jsp");

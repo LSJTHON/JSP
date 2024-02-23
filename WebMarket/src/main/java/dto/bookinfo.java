@@ -1,6 +1,8 @@
 package dto;
 
 public class bookinfo {
+	
+	private String filename; //이미지 파일명
 	private String bookId; // 도서 아이디
 	private String name;  //도서 명
 	private Integer unitPrice; // 가격
@@ -12,6 +14,13 @@ public class bookinfo {
 	private long totalPages; // 페이지 수
 	private String releaseDate; // 출판일
 	private String condition;  // 신규 중고 e북
+	
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 	
 	public bookinfo() {
 		super();

@@ -10,7 +10,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<!-- <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+<link rel = "stylesheet" href = "./resources/css/bootstrap.min.css" />
 <title>Insert title here</title>
 </head>
 <body>
@@ -27,21 +28,33 @@
 		ArrayList<bookinfo> bookinfo1 = dao.getAllBooks();
 	%>
 	<div class = "container">
-		<div class="row" align ="left">
+		<div class="row" >
 		<%
 				for(int i = 0; i < bookinfo1.size(); i++){
 					bookinfo bookinfo = bookinfo1.get(i);
-
-				
 		%>
-			<div class="col-md-12">
+			
+				<img style ="width =30%" src ="/upload/<%=bookinfo.getFilename() %>" style="width:100%" class ="col-md-4">
+			<%-- <img src ="./resources/images/<%=bookinfo.getFilename() %>" style="width:100%"> --%>
+			
+			<div class="col-md-6">
+			
 				<h3><%=bookinfo.getName() %></h3>
 				<p style="padding-top:20px"><%=bookinfo.getDescription() %>...</p>
 				<p><%=bookinfo.getAuthor() %> | <%=bookinfo.getPublisher() %> | <%=bookinfo.getUnitPrice()  %>원 </p>
-				<p> <a href = "./bookStores.jsp?id=<%=bookinfo.getBookId()%>"
-						class = "btn btn-secondary" role ="button">상세 정보 &raquo;</a>
-				<hr>
+				<p> 
 			</div>
+				
+				<div class="col-md-2 mt-5"'>
+				<a href = "./bookStores.jsp?id=<%=bookinfo.getBookId()%>"				
+						class = "btn btn-secondary" role ="button">상세 정보 &raquo;</a>
+				
+				</div>
+				
+				
+				<hr>
+			
+			
 		<%
 				}
 		%>

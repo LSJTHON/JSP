@@ -50,11 +50,7 @@
 						class = "btn btn-secondary" role ="button">상세 정보 &raquo;</a>
 				
 				</div>
-				
-				
 				<hr>
-			
-			
 		<%
 				}
 		%>

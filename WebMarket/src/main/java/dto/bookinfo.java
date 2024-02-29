@@ -1,6 +1,9 @@
 package dto;
 
-public class bookinfo {
+import java.io.Serializable;
+
+public class bookinfo implements Serializable{
+	private static final long serialVersionUID = -4274700572038677000L;
 	
 	private String filename; //이미지 파일명
 	private String bookId; // 도서 아이디
@@ -14,6 +17,14 @@ public class bookinfo {
 	private long totalPages; // 페이지 수
 	private String releaseDate; // 출판일
 	private String condition;  // 신규 중고 e북
+	private int quantity; //장바구니 담은 개수
+	
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	
 	public String getFilename() {
 		return filename;

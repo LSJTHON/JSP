@@ -45,7 +45,7 @@
 				<p> 
 			</div>
 				
-				<div class="col-md-2 mt-5"'>
+				<div class="col-md-2 mt-5">
 				<a href = "./bookStores.jsp?id=<%=bookinfo.getBookId()%>"				
 						class = "btn btn-secondary" role ="button">상세 정보 &raquo;</a>
 				

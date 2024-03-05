@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="dto.bookinfo,dao.bookinfoPepository" %>
-     <%@ page import ="com.oreilly.servlet.*,com.oreilly.servlet.multipart.*, java.util.*" %>
+<%@ page import="dto.bookinfo,dao.bookinfoPepository" %>
+<%@ page import ="com.oreilly.servlet.*,com.oreilly.servlet.multipart.*, java.util.*" %>
+<%@ page import ="java.sql.*" %>
+<%@ include file = "dbconn.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +51,26 @@
 	String fname = (String) files.nextElement();
 	String fileName = multi.getFilesystemName(fname);
 	
-	bookinfoPepository dao = bookinfoPepository.getInstance();
+	PreparedStatement pstmt = null;
+	
+	String sql = "insert into book(b_id,b_name,b_unitPrice,b_description,b_publisher,b_category,b_unitsInStock,b_condition,b_author,b_filename) values(?,?,?,?,?,?,?,?,?,?)";
+	pstmt = conn.prepareStatement(sql);
+	pstmt.setString(1,bookId);
+	pstmt.setString(2,name);
+	pstmt.setInt(3,price);
+	pstmt.setString(4,description);
+	pstmt.setString(5,publisher);
+	pstmt.setString(6,category);
+	pstmt.setLong(7,stock);
+	pstmt.setString(8,condition);
+	pstmt.setString(9,author);
+	pstmt.setString(10,fileName);
+	pstmt.executeUpdate();
+	
+	if(pstmt != null) pstmt.close();
+	if(conn != null) conn.close();
+	
+	/* bookinfoPepository dao = bookinfoPepository.getInstance();
 	
 	bookinfo newbookinfo = new bookinfo();
 	newbookinfo.setBookId(bookId);
@@ -63,7 +84,7 @@
 	newbookinfo.setAuthor(author);
 	newbookinfo.setFilename(fileName);
 	
-	dao.addbookinfo(newbookinfo);
+	dao.addbookinfo(newbookinfo); */
 	response.sendRedirect("bookStore.jsp");
 	%>
 </body>

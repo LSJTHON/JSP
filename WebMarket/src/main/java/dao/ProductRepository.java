@@ -45,7 +45,7 @@ public class ProductRepository {
 		notebook.setFilename("bonobono2.jpg");
 		
 		Product tablet = new Product("P1236","갤럭시 탭 S",900000);
-		tablet.setDescription("제품 스펙? 나도몰라 그냥 사줘");
+		tablet.setDescription("제품 스펙? 나도몰라 그냥 사줘ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
 		tablet.setCategory("태블릿");
 		tablet.setManufaturer("삼성");
 		tablet.setUnitInStrock(1000);
